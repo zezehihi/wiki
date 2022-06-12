@@ -1,0 +1,46 @@
+created: 20220612033815226
+creator: TidGiUser
+modified: 20220612033837946
+modifier: TidGiUser
+tags: React
+title: Mobx使用简单示例
+type: text/vnd.tiddlywiki
+
+```
+import { observable, **makeObservable** } from 'mobx'
+class OneStore {
+//写法一
+  **@observable oneNum = 3333
+//加上下面这句可以实时更新，原来写法不加不能
+  constructor() {
+    makeObservable(this)
+  }**
+}
+//写法二
+oneNum = 3333
+  constructor() {
+    makeObservable(this, {
+      oneNum: observable,
+    })
+  }
+}
+export default OneStore
+
+//使用工厂函数
+function createTodoStore() {
+    const store = makeAutoObservable({
+ 
+        todos: [] as Todo[],
+ 
+        get unfinishedTodoCount() {
+            return store.todos.filter(todo => !todo.done).length
+        },
+ 
+        addTodo(todo: Todo) {
+            store.todos.push(todo)
+        }
+    })
+    return store
+}
+
+````

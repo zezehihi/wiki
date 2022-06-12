@@ -1,0 +1,36 @@
+created: 20220612034020879
+creator: TidGiUser
+modified: 20220612034031195
+modifier: TidGiUser
+tags: ReactNative
+title: ReactNative真机调试网络问题解决
+type: text/vnd.tiddlywiki
+
+
+
+! 问题
+
+前端ReactNative项目，后端本地项目，真机调试时无法访问后端接口，而开启react-native-debugger可以访问后端接口。
+
+! 解决
+
+经过很多很多小时地不停网上找解决方法，各种试验后找出了如下ReactNative真机无法调试的可能性。
+
+!! react-native-debugger开启时RN应用部分网络接口不能使用
+
+react-native-debugger启动时有些接口如上传头像无法实现，关闭后就可以了。
+
+!!未使用ip地址替代localhost
+
+来自问题 [[javascript - React native TypeError: Network request failed\ - Stack Overflow|https://stackoverflow.com/questions/40225665/react-native-typeerror-network-request-failed]]
+
+回答是说物理设备不能解析localhost。
+
+!!防火墙入站规则未设置
+
+因为电脑防火墙原因限制了真机RN应用访问后端项目接口。
+
+入站规则设置方式：
+
+打开控制面板—Windows防火墙—高级设置—入站规则—新建规则—端口—输入当前后端项目的端口号
+

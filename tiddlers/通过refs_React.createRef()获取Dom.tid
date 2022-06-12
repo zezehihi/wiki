@@ -1,0 +1,81 @@
+created: 20220612033617236
+creator: TidGiUser
+modified: 20220612033630769
+modifier: TidGiUser
+tags: React
+title: 通过refs/React.createRef()获取Dom
+type: text/vnd.tiddlywiki
+
+! 通过refs/React.createRef()获取Dom
+
+! 回调refs获取dom
+
+ref可以是字符串或者回调函数
+
+```jsx
+import React from 'react';
+
+export default class RefApp extends React.Component{
+    constructor(props){
+        super(props);
+        this.copy= this.copy.bind(this);
+        this.input = null;
+    }
+    //对文本内容进行复制
+    copy(){
+				{/* 一、ref可以是回调函数,此时参数e即为该dom元素本身，将它绑定到对象属性input中 */}
+        this.input.select();
+				{/* 二、ref 为字符串，可以通过this.refs.ref值来获取元素*/}
+				this.refs.inputEle.select();
+        document.execCommand("copy");
+    }
+
+    render(){
+        return (
+            <div>
+            	{/* 一、ref可以是回调函数,此时参数e即为该dom元素本身，将它绑定到对象属性input中 */}
+                <input ref={e=>this.input=e} type="text" ></input>
+                <button onClick={this.copy} >点击复制内容</button>
+							{/* 二、ref为字符串，通过组件对象下的refs属性获取 */}
+                <input ref="inputEle" type="text" ></input>
+                <button onClick={this.copy} >点击复制内容</button>
+            </div>
+        )
+    }
+}
+```
+
+!! React.createRef()
+
+该方法返回一个ref 对象， 通过`ref` 属性绑定该对象，该对象下的`current` 属性就指向了绑定的元素或组件对象
+
+ref 用于访问在 render 方法中创建的 DOM 元素或者是 React 组件实例
+
+```jsx
+import React from 'react';
+
+export default class RefApp extends React.Component{
+    constructor(props){
+        super(props);
+        this.input = React.createRef();
+        this.copy= this.copy.bind(this);
+    }
+    //对文本内容进行复制
+    copy(){
+        console.log(this.input)
+        this.input.current.select();
+        document.execCommand("copy");
+    }
+
+    render(){
+        return (
+            <div>
+                <input ref={this.input} type="text" ></input>
+                <button onClick={this.copy} >点击复制内容</button>
+            </div>
+           
+        )
+    }
+}
+```
+

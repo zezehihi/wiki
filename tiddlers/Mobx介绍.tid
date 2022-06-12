@@ -1,0 +1,69 @@
+created: 20220612033650276
+creator: TidGiUser
+modified: 20220612033802278
+modifier: TidGiUser
+tags: React
+title: Mobx介绍
+type: text/vnd.tiddlywiki
+
+! 核心概念
+
+!! Observable state（可观察的状态）
+
+```jsx
+import { observable } from "mobx";
+
+class Todo {
+    id = Math.random();
+    @observable title = "";
+    @observable finished = false;
+}
+```
+
+`@observable`装饰器观察对象，数组和类实例的变化。
+
+!! Computed values（计算值）
+
+```jsx
+class TodoList {
+    @observable todos = [];
+    @computed get unfinishedTodoCount() {
+        return this.todos.filter(todo => !todo.finished).length;
+    }
+}
+```
+
+`@computed`装饰器或者利用`(extend)Observable`时调用的`getter/setter`函数来定义相关数据发生变化时自动更新的值。
+
+像这样的计算可以类似于 MS Excel 这样电子表格程序中的公式。每当只有在需要它们的时候，它们才会自动更新。
+
+!! Reactions（反应）
+
+产生副作用，比如说打印到控制台、网络请求等等。reactions在响应式编程和命令式编程之间建立沟通的桥梁。
+
+!! React组件
+
+在组件上加上observer函数/装饰器，可以使（无状态函数）组件变成响应式组件。
+
+```jsx
+**@observer**
+class TodoListView extends Component {...}
+
+const TodoView = **observer**(({todo}) =>
+    ...
+)
+```
+
+!! 自定义reactions
+
+使用`autorun`、`reaction` 和 `when` 函数即可简单的创建自定义 reactions。
+
+```jsx
+autorun(() => {
+    console.log("Tasks left: " + todos.unfinishedTodoCount)
+})
+```
+
+!! Action（动作）
+
+使用 actions 是有优势的: 它们可以帮助你把代码组织的更好，还能在状态何时何地应该被修改这个问题上帮助你做出明智的决定。

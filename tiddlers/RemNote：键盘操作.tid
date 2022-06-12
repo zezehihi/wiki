@@ -1,0 +1,65 @@
+created: 20220612034729917
+creator: TidGiUser
+modified: 20220612034750613
+modifier: TidGiUser
+tags: RemNote
+title: RemNote：键盘操作
+type: text/vnd.tiddlywiki
+
+! 语法：功能创造
+`::`  创造闪卡 
+
+`[[`  连接、显示任意Concept主体，有''同步性 ''
+
+`##`  标签，出现在文字旁边
+
+`{{`  双向链接
+
+`%%`  emoji，可以用来筛选。双击两下，显示所有含表情的Rem
+
+`!!`  日期
+
+`\alias+Enter`  别名
+
+`\sort+Enter`  字母排序
+
+`\doto+Enter`  创建TO-DO
+
+`!!`  日期
+
+
+! 操作快捷键
+
+`shift+左键`  视窗分割，单击链接，右排显示链接内容。
+
+`ctrl+alt+D`  快速转为描述
+
+`Alt+D`  新建页面
+
+`ctrl+Enter`  当前Rem状态更新
+
+`/color`  变色
+
+''搜寻文件时在不同层级切换''
+
+    “Ctrl+P”→“Tab”向下一次
+		“Shift+Tab”向上一层；
+
+''在文件里切换显示''
+
+    “Ctrl+;”，向上一层； “Ctrl+'”向下一层；
+
+''收起、展开Rem''
+
+`Ctrl+Shift+上下箭头`
+
+''打开Rem一层级''
+
+`Ctrl+上下箭头`
+
+
+''移动rem''
+
+一个页面中上下移动rem：“Alt+up”向上移动、“Alt+down”向下移动；
+把rem移到其他页面下：“Ctrl+Shift+M”，弹窗中选择目标页面。
+

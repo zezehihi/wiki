@@ -1,0 +1,16 @@
+created: 20220612035143542
+creator: TidGiUser
+modified: 20220612035430083
+modifier: TidGiUser
+tags: 任务
+title: 感兴趣的事
+type: text/vnd.tiddlywiki
+
+<$button>
+	<$action-sendmessage $message="tm-new-tiddler" title=<<now "YYYY-MM-DD">> tags="感兴趣的事 Task" priority="normal" status="not started" />
+	增加感兴趣的事
+</$button>
+
+<$macrocall $name=table-dynamic caption="NAME" filter="[tag[Task]]-[tag[当前待办]]-[tag[done]]"  fields="tbl-checkbox tbl-expand title priority status tags" class="w-100"/>
+
+<$macrocall $name="locator-view" baseTitle=<<currentTiddler>> />

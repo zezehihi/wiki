@@ -1,0 +1,59 @@
+created: 20220612034344802
+creator: TidGiUser
+modified: 20220612034353871
+modifier: TidGiUser
+tags: Git
+title: 创建裸仓和钩子
+type: text/vnd.tiddlywiki
+
+! 创建裸仓
+```
+// 创建用户
+useradd git
+
+// 设置密码
+passwd git 
+
+// 切换用户
+su git 
+
+// 进入git用户的家目录
+cd /home/git/
+
+// 项目存在的真实目录（当然你可以创建在其他地方）
+mkdir -p projects/hexo_blog 
+
+// 创建文件夹
+mkdir repos && cd repos
+
+// 创建一个裸露的仓库
+git init --bare hexo_blog.git
+```
+! 写入钩子
+
+```
+cd hexo_blog.git/hooks
+// 创建 hook 钩子函数，输入了内容如下
+vi post-receive 
+输入以下的命令
+
+#!/bin/sh
+git --work-tree=/home/git/projects/hexo_blog --git-dir=/home/git/repos/hexo_blog.git checkout -f
+写入后添加可执行权限
+
+// 为刚才的文件添加可执行的权限
+chmod +x post-receive
+// 退出到 root 登录
+exit 
+// 添加权限
+chown -R git:git /home/git/repos/hexo_blog.git 
+```
+
+! 测试能否正常 clone
+
+ 
+```
+在自己电脑上找一个空的文件夹输入如下命令：
+
+git clone git@server_ip:/home/git/repos/hexo_blog.git
+```

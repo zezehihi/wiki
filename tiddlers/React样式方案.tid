@@ -1,0 +1,70 @@
+created: 20220612033915855
+creator: TidGiUser
+modified: 20220612033940560
+modifier: TidGiUser
+tags: React
+title: React样式方案
+type: text/vnd.tiddlywiki
+
+
+! 行内样式
+
+```jsx
+  <p style= {{color:'red', fontSize:'40px'}}>行内样式</p>这里的css样式名采用驼峰命名法
+```
+
+这里的css样式名采用驼峰命名法
+
+将CSS属性放在双大括号之间。为什么要用两个大括号？因为在JSX中渲染的JS表达式，它们必须被放在一对大括号里，{style}可以视为一个JS对象。所以第一对大括号正是将JS表达式放入JSX解析，里面的那对大括号则创建了一个style对象实例，所以在这里style是作为一个对象传入组件。
+
+! 声明样式
+
+声明样式其实是行内样式的一种改进写法，在render函数外部创建style对象，然后传递给组件。
+
+```jsx
+const style2={          
+color:'red',      
+fontSize:'40px'    
+}   
+render() {
+```
+
+! 引入样式
+
+css文件写在外部。通过`import` 引入。
+
+因为CSS的规则都是全局的，任何一个组件的样式规则，都对整个页面有效，这可能会导致大量的冲突。也就是说如果我有两个css文件，它们的中的一些样式名是一样的，那么就会被覆盖，简单的解决办法就是将样式的命名变得复杂且不重复，但这样样式多了也很难避免重复，且命名也不会太好看。那么这个时候就推荐使用CSS Modules 了
+
+! CSS Modules
+
+CSS Modules 的做法就是通过配置将.css文件进行编译，编译后在每个用到css的组件中的css类名都是独一无二的，从而实现CSS的局部作用域。
+
+使用了CSS Modules产生的局部样式的样式名经过编译产生了变化，样式名在项目中独一无二，从而产生局部作用域，而全局样式的样式名则没有发生变化.
+
+局部样式 命名规则: xxx.module.css
+
+引入方式 import xxx from ‘xxx.module.css’
+
+用法：<div className={xxx.styleName}>
+
+! Styled Components
+
+随着组件化时代的来临，前端应用开始从组件的层面对 CSS 进行封装：也就是通过 JS 来声明、抽象样式从而提高组件的可维护性；在组件加载时动态的加载样式，动态生成类名从而避免全局污染。Styled Component以组件的形式来声明样式，让样式也成为组件从而分离逻辑组件与展示组件
+
+Styled Component是react的一个第三方库，是CSS in JS 的优秀实践和代表，将CSS写在JS中，可以实现常规CSS所不好处理的逻辑复杂、函数方法、复用、避免干扰。样式书写将直接依附在JSX上面，HTML、CSS、JS三者再次内聚，同时也实现H5的语义化标签表现形式。
+
+**简单使用**
+
+```
+// 创建一个 Title 组件,它将渲染一个附加了样式的 <h1> 标签
+const Title = styled.h1
+`  font-size: 1.5em;
+  text-align: center;
+  color: palevioletred;
+`; 
+// 创建一个 Wrapper 组件,它将渲染一个附加了样式的 <section> 标签
+const Wrapper = styled.section`
+  padding: 4em;  background: papayawhip;`;
+ // 就像使用常规 React 组件一样使用 Title 和 Wrapper 
+render(  <Wrapper>    <Title>      Hello World!    </Title>  </Wrapper>);
+```

@@ -1,0 +1,21 @@
+created: 20220612033352187
+creator: TidGiUser
+modified: 20220612033401330
+modifier: TidGiUser
+tags: 服务器
+title: Ubuntu中更改默认的root用户密码
+type: text/vnd.tiddlywiki
+
+sudo passwd
+
+pw
+
+pw
+
+su root 测试
+
+修改指定用户的密码
+
+su root
+
+passwd 用户名

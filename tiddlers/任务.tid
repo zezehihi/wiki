@@ -1,0 +1,22 @@
+created: 20220612032933527
+creator: TidGiUser
+modified: 20220612035501611
+modifier: TidGiUser
+tags: Index
+title: 任务
+type: text/vnd.tiddlywiki
+
+<$button>
+	<$action-sendmessage $message="tm-new-tiddler" title=<<now "YYYY-MM-DD">> tags="Task" priority="normal" status="not started" />
+	增加Task
+</$button>
+
+<$macrocall $name=table-dynamic caption="当前待办" filter="[tag[Task]]+[kin::to[Task]]+[status[in]]"  fields="tbl-checkbox tbl-expand title priority status " class="w-100"/>
+
+
+
+---
+<<details label:"当前待办" src:"当前待办" labelClass:"bg-secondary text-white">>
+
+<<details label:"感兴趣的事" src:"感兴趣的事" labelClass:"bg-secondary text-white">>
+

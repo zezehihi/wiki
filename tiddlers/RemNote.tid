@@ -1,0 +1,22 @@
+created: 20220612034708665
+creator: TidGiUser
+modified: 20220612034855444
+modifier: TidGiUser
+tags: 软件
+title: RemNote
+type: text/vnd.tiddlywiki
+
+[[RN 爱好者们翻译的官方文档 |https://www.remnote.io/a/-long-form-tutorials/60914e99cc8b97004587b157]]
+
+
+[[RemNote知乎专栏|https://www.zhihu.com/column/c_1343929082308993024]]
+
+[[RemNote 中文讨论小组|https://github.com/RemNote-CN/RemNote-CN]]
+
+[[RemNote 协作知识库|https://github.com/RemNote-CN/RemNote-CN/wiki/RemNote%E7%BE%A4%E5%8D%8F%E4%BD%9C%E7%9F%A5%E8%AF%86%E5%BA%93%F0%9F%8C%B4]]
+
+[[RemNote 中文教程 - 西塔小鎮|https://www.youtube.com/channel/UC_qhkxcYM0DFrm1zi06UYUg/videos]]
+[[结构化突击学习的利器--RemNote, 吹爆!|https://zhuanlan.zhihu.com/p/350209298]]
+
+
+<$macrocall $name="locator-view" baseTitle=<<currentTiddler>> />

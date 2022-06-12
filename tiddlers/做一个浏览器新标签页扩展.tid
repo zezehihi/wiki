@@ -1,0 +1,47 @@
+created: 20220612035211046
+creator: TidGiUser
+modified: 20220612035436595
+modifier: TidGiUser
+priority: very high
+status: not started
+tags: 感兴趣的事 Task Geek
+title: 做一个浏览器新标签页扩展
+type: text/vnd.tiddlywiki
+
+得加上设置收藏夹功能，但还没学过怎么做。
+
+希望onetab+moontab结合
+
+! 新标签页
+* 稍后再看
+* 快捷网站
+* RSS
+
+! Tab页
+* 收集Tab（当前选中、全部）
+* 一键打开
+* 一键删除
+* 同步/存储/导出
+* 能改网页名称
+
+
+
+
+
+
+---
+[chrome插件官网](https://developer.chrome.com/extensions)
+
+[chrome api官网](https://developer.chrome.com/extensions/api_index)
+
+[【干货】Chrome插件(扩展)开发全攻略](https://www.cnblogs.com/liuxianan/p/chrome-plugin-develop.html#%E9%95%BF%E8%BF%9E%E6%8E%A5%E5%92%8C%E7%9F%AD%E8%BF%9E%E6%8E%A5)
+
+[chrome-plugin-demo插件](https://github.com/sxei/chrome-plugin-demo)
+
+[chrome-ext-tabulator插件](https://github.com/greduan/chrome-ext-tabulator)
+
+[ContextSearch插件](https://github.com/lo0kup/ContextSearch)
+
+[一篇文章搞定Github API 调用 (v3）](https://segmentfault.com/a/1190000015144126)
+
+[Sortable官网](https://github.com/SortableJS/Sortable)
