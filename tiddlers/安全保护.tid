@@ -1,0 +1,17 @@
+created: 20220613101446146
+creator: TidGiUser
+modified: 20220613101521914
+modifier: TidGiUser
+tags: 服务器
+title: 安全保护
+type: text/vnd.tiddlywiki
+
+通过修改/etc/ssh/sshd_config文件
+
+* 关闭密码登录，只允许秘钥对登录
+
+* 改换ssh默认端口，防止暴力撞库被破解
+
+* 禁用root账户直接登录，开放特定的IP访问
+
+
