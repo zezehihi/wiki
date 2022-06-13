@@ -1,0 +1,33 @@
+created: 20220613132633921
+creator: TidGiUser
+modified: 20220613132652903
+modifier: TidGiUser
+tags: 服务器
+title: 查看当前所有用户和组信息
+type: text/vnd.tiddlywiki
+
+```
+1、查看所有的用户信息   
+
+cat /etc/passwd
+
+2、 用户名，用于查找某个用户
+
+cat /etc/passwd|grep 用户名
+
+3、查看所有组信息
+
+cat /etc/group
+
+4、用于查找某个用户组
+
+cat /etc/group|grep 组名
+
+5、用户和组常用命令
+
+groups 查看当前登录用户的组内成员
+
+groups test 查看test用户所在的组,以及组内成员
+
+whoami 查看当前登录用户名
+```
