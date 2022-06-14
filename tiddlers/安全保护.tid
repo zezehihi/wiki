@@ -1,6 +1,6 @@
 created: 20220613101446146
 creator: TidGiUser
-modified: 20220613133823437
+modified: 20220613145752648
 modifier: TidGiUser
 tags: 服务器
 title: 安全保护
@@ -32,3 +32,12 @@ history #查看操作的命令记录
 lastb #用于列出登入系统失败的用户相关信息
 ```
 
+! fail2ban
+```
+apt-get install fail2ban
+
+cd /etc/fail2ban/
+cp fail2ban.conf fail2ban.local
+cp jail.conf jail.local
+[[[tbc]]]
+```
